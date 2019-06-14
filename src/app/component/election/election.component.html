@@ -1,0 +1,34 @@
+<h2>Election Contract</h2>
+<p class="alert alert-info" *ngIf="defaultAccount != undefined">Logged In Account: {{defaultAccount}}</p>
+
+<div class="create-box">
+  <form #f="ngForm" (ngSubmit)="createCandidate(f.value)">
+    <h3>Create Candidates</h3>
+    <input type="text" name="name" placeholder="Candidates Name" ngModel>
+    <button >Create Candidates</button>
+        <p class="alert alert-success" *ngIf="tranactionId != undefined">Created succesfully. TranactionId: {{tranactionId}}</p>
+  </form>
+</div>
+
+<br>
+
+<button (click)="getCandidates()">Load Candidates</button>
+<div *ngIf="candidatesCount != undefined">
+  <br>
+  <p>Candidates Count: {{candidatesCount}}</p>
+  <p class="alert alert-success" *ngIf="votetranactionId != undefined">Voted succesfully. TranactionId: {{votetranactionId}}</p>
+   <table class="table table-bordered table-striped">
+    <tr>
+      <td>Id</td>
+      <td>Name</td>
+      <td>Vote Count</td>
+      <td>Vote</td>
+    </tr>
+    <tr *ngFor="let data of candidatesList">
+      <td>{{data.id}}</td>
+      <td>{{data.name}}</td>
+      <td>{{data.voteCount}}</td>
+      <td><button (click)="vote(data.id)">Vote</button></td>
+    </tr>
+  </table>
+</div>

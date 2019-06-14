@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+aside{
+    width: 19%;
+    float: right;
+    background:#ddc;
+    padding: 10px; 
+    min-height: 590px;
+}
+main{
+    width: 79%;
+    float: left;
+    padding: 10px;
+}
+.create-box{
+    background:#dde;
+    padding: 13px;
+}
